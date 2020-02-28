@@ -7,20 +7,20 @@ use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use DoctrineModule\Stdlib\Hydrator;
 use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
-use Zend\ServiceManager\AbstractFactoryInterface;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\Stdlib\Exception\InvalidCallbackException;
-use Zend\Hydrator\AbstractHydrator;
-use Zend\Hydrator\Filter\FilterComposite;
-use Zend\Hydrator\Filter\FilterInterface;
-use Zend\Hydrator\FilterEnabledInterface;
-use Zend\Hydrator\HydratorInterface;
-use Zend\Hydrator\Strategy\StrategyInterface;
-use Zend\Hydrator\StrategyEnabledInterface;
-use Zend\Hydrator\NamingStrategy\NamingStrategyInterface;
-use Zend\Hydrator\NamingStrategyEnabledInterface;
+use Laminas\ServiceManager\AbstractFactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\Stdlib\Exception\InvalidCallbackException;
+use Laminas\Hydrator\AbstractHydrator;
+use Laminas\Hydrator\Filter\FilterComposite;
+use Laminas\Hydrator\Filter\FilterInterface;
+use Laminas\Hydrator\FilterEnabledInterface;
+use Laminas\Hydrator\HydratorInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\StrategyEnabledInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
+use Laminas\Hydrator\NamingStrategyEnabledInterface;
 
 /**
  * Class DoctrineHydratorFactory.
@@ -48,7 +48,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      *
      * @return bool
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotFoundException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotFoundException
      */
     public function canCreateServiceWithName(ServiceLocatorInterface $hydratorManager, $name, $requestedName)
     {
@@ -146,7 +146,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      *
      * @return string
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotCreatedException
      */
     protected function getObjectManagerType($objectManager)
     {
@@ -167,7 +167,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      *
      * @return ObjectManager
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotCreatedException
      */
     protected function loadObjectManager(ServiceLocatorInterface $serviceManager, $config)
     {
@@ -226,7 +226,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      * @param                         $config
      * @param                         $objectManager
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotCreatedException
      */
     public function configureHydrator($hydrator, ServiceLocatorInterface $serviceManager, $config, $objectManager)
     {
@@ -241,7 +241,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      * @param                         $config
      * @param                         $objectManager
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotCreatedException
      */
     public function configureHydratorNamingStrategy($hydrator, ServiceLocatorInterface $serviceManager, $config, $objectManager)
     {
@@ -273,7 +273,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      * @param                         $config
      * @param                         $objectManager
      *
-     * @throws \Zend\ServiceManager\Exception\ServiceNotCreatedException
+     * @throws \Laminas\ServiceManager\Exception\ServiceNotCreatedException
      */
     protected function configureHydratorStrategies($hydrator, ServiceLocatorInterface $serviceManager, $config, $objectManager)
     {

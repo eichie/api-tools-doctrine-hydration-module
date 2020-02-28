@@ -3,8 +3,8 @@
 namespace PhproTest\DoctrineHydrationModule\Tests\Service;
 
 use Phpro\DoctrineHydrationModule\Service\DoctrineHydratorFactory;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Hydrator\HydratorPluginManager;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Hydrator\HydratorPluginManager;
 
 class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,11 +33,11 @@ class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
         $this->serviceManager = new ServiceManager();
         $this->serviceManager->setAllowOverride(true);
         $this->serviceManager->setService('Config', $this->serviceConfig);
-        $this->serviceManager->setService('custom.strategy', $this->getMock('Zend\Hydrator\Strategy\StrategyInterface'));
-        $this->serviceManager->setService('custom.filter', $this->getMock('Zend\Hydrator\Filter\FilterInterface'));
-        $this->serviceManager->setService('custom.naming_strategy', $this->getMock('Zend\Hydrator\NamingStrategy\NamingStrategyInterface'));
+        $this->serviceManager->setService('custom.strategy', $this->getMock('Laminas\Hydrator\Strategy\StrategyInterface'));
+        $this->serviceManager->setService('custom.filter', $this->getMock('Laminas\Hydrator\Filter\FilterInterface'));
+        $this->serviceManager->setService('custom.naming_strategy', $this->getMock('Laminas\Hydrator\NamingStrategy\NamingStrategyInterface'));
 
-        $this->hydratorManager = $this->getMock('Zend\Hydrator\HydratorPluginManager');
+        $this->hydratorManager = $this->getMock('Laminas\Hydrator\HydratorPluginManager');
         $this->hydratorManager
             ->expects($this->any())
             ->method('getServiceLocator')
@@ -98,7 +98,7 @@ class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
     public function it_should_be_an_abstract_factory()
     {
         $factory = new DoctrineHydratorFactory();
-        $this->assertInstanceOf('Zend\ServiceManager\AbstractFactoryInterface', $factory);
+        $this->assertInstanceOf('Laminas\ServiceManager\AbstractFactoryInterface', $factory);
     }
 
     /**
@@ -183,12 +183,12 @@ class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('get')
             ->with('custom.hydrator')
-            ->will($this->returnValue($this->getMock('Zend\Hydrator\ArraySerializable')));
+            ->will($this->returnValue($this->getMock('Laminas\Hydrator\ArraySerializable')));
 
         $hydrator = $this->createOrmHydrator();
 
-        $this->assertInstanceOf('Zend\Hydrator\ArraySerializable', $hydrator->getHydrateService());
-        $this->assertInstanceOf('Zend\Hydrator\ArraySerializable', $hydrator->getExtractService());
+        $this->assertInstanceOf('Laminas\Hydrator\ArraySerializable', $hydrator->getHydrateService());
+        $this->assertInstanceOf('Laminas\Hydrator\ArraySerializable', $hydrator->getExtractService());
     }
 
     /**
@@ -200,7 +200,7 @@ class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
         $realHydrator = $hydrator->getExtractService();
 
         $this->assertTrue($realHydrator->hasStrategy('fieldname'));
-        $this->assertInstanceOf('Zend\Hydrator\Strategy\StrategyInterface', $realHydrator->getStrategy('fieldname'));
+        $this->assertInstanceOf('Laminas\Hydrator\Strategy\StrategyInterface', $realHydrator->getStrategy('fieldname'));
     }
 
     /**
@@ -212,7 +212,7 @@ class DoctrineHydratorFactoryTest extends \PHPUnit_Framework_TestCase
         $realHydrator = $hydrator->getExtractService();
 
         $this->assertTrue($realHydrator->hasNamingStrategy());
-        $this->assertInstanceOf('Zend\Hydrator\NamingStrategy\NamingStrategyInterface', $realHydrator->getNamingStrategy());
+        $this->assertInstanceOf('Laminas\Hydrator\NamingStrategy\NamingStrategyInterface', $realHydrator->getNamingStrategy());
     }
 
     /**

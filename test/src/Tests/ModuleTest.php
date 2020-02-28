@@ -24,7 +24,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
     public function it_should_provide_autoloader_configuration()
     {
         $module = new Module();
-        $this->assertInstanceOf('Zend\ModuleManager\Feature\AutoloaderProviderInterface', $module);
+        $this->assertInstanceOf('Laminas\ModuleManager\Feature\AutoloaderProviderInterface', $module);
         $this->assertInternalType('array', $module->getAutoloaderConfig());
     }
 
@@ -34,7 +34,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
     public function it_should_provide_configuration()
     {
         $module = new Module();
-        $this->assertInstanceOf('Zend\ModuleManager\Feature\ConfigProviderInterface', $module);
+        $this->assertInstanceOf('Laminas\ModuleManager\Feature\ConfigProviderInterface', $module);
         $this->assertInternalType('array', $module->getConfig());
     }
 }

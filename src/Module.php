@@ -2,8 +2,8 @@
 
 namespace Phpro\DoctrineHydrationModule;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Laminas\ModuleManager\Feature\AutoloaderProviderInterface;
+use Laminas\ModuleManager\Feature\ConfigProviderInterface;
 
 class Module
     implements AutoloaderProviderInterface, ConfigProviderInterface
@@ -14,7 +14,7 @@ class Module
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\StandardAutoloader' => array(
+            'Laminas\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__,
                 ),
