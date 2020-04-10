@@ -31,7 +31,7 @@
     "require-dev": {
         "fabpot/PHP-CS-Fixer": "^1.11.6",
         "phpunit/phpunit": "^5.7.27",
-        "doctrine/doctrine-orm-module": "^1.1 || ^2.1.2",
+        "doctrine/doctrine-orm-module": "^1.1 || ^2.1.2 || ^3.0",
         "doctrine/doctrine-mongo-odm-module": "^0.11 || ^1.0",
         "doctrine/mongodb-odm": "^1.1",
         "phpro/grumphp": "^0.9.1"
