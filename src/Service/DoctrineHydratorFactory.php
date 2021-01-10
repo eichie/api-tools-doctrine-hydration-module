@@ -3,6 +3,7 @@
 namespace Phpro\DoctrineHydrationModule\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Laminas\Hydrator\DoctrineObject;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
@@ -18,7 +19,7 @@ use Laminas\Hydrator\HydratorInterface;
 use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
 use Laminas\Hydrator\NamingStrategyEnabledInterface;
 use Laminas\Hydrator\Strategy\StrategyInterface;
-use Laminas\Hydrator\StrategyEnabledInterface;
+use Laminas\Hydrator\Strategy\StrategyEnabledInterface;
 use Laminas\ServiceManager\AbstractFactoryInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
@@ -249,7 +250,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
         if ($objectManagerType == self::OBJECT_MANAGER_TYPE_ODM_MONGODB) {
             $hydrator = new MongoDB\DoctrineObject($objectManager, $config['by_value']);
         } else {
-            $hydrator = new Hydrator\DoctrineObject($objectManager, $config['by_value']);
+            $hydrator = new DoctrineObject($objectManager, $config['by_value']);
         }
 
         return $hydrator;
@@ -367,8 +368,8 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
                 'or' => FilterComposite::CONDITION_OR,
             );
             $condition = isset($filterConfig['condition']) ?
-                            $conditionMap[$filterConfig['condition']] :
-                            FilterComposite::CONDITION_OR;
+                $conditionMap[$filterConfig['condition']] :
+                FilterComposite::CONDITION_OR;
 
             $filterService = $filterConfig['filter'];
             if (!$container->has($filterService)) {
