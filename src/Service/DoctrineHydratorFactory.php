@@ -3,7 +3,6 @@
 namespace Phpro\DoctrineHydrationModule\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Laminas\Hydrator\DoctrineObject;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
@@ -19,11 +18,12 @@ use Laminas\Hydrator\HydratorInterface;
 use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
 use Laminas\Hydrator\NamingStrategyEnabledInterface;
 use Laminas\Hydrator\Strategy\StrategyInterface;
-use Laminas\Hydrator\Strategy\StrategyEnabledInterface;
+use Laminas\Hydrator\StrategyEnabledInterface;
 use Laminas\ServiceManager\AbstractFactoryInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Doctrine\Laminas\Hydrator\DoctrineObject;
 
 /**
  * Class DoctrineHydratorFactory.
