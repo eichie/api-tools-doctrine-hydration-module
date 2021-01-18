@@ -18,7 +18,7 @@ use Laminas\Hydrator\HydratorInterface;
 use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
 use Laminas\Hydrator\NamingStrategyEnabledInterface;
 use Laminas\Hydrator\Strategy\StrategyInterface;
-use Laminas\Hydrator\StrategyEnabledInterface;
+use Laminas\Hydrator\Strategy\StrategyEnabledInterface;
 use Laminas\ServiceManager\AbstractFactoryInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
